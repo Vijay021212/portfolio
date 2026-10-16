@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- LinkedIn background banner, 1584x396. Render with: npm run brand (scripts/brand.mjs).
+     The bottom-left ~420px stays empty because the profile photo overlaps it on LinkedIn. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1584px; height: 396px; overflow: hidden; }
+  body { position: relative; font-family: Inter, system-ui, sans-serif; color: oklch(0.18 0.02 70); background: oklch(0.965 0.025 88); }
+  .cloud { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.6; }
+  .c1 { left: -160px; top: -260px; width: 620px; height: 620px; background: oklch(0.88 0.14 85); }
+  .c2 { left: 860px; top: -300px; width: 620px; height: 620px; background: oklch(0.84 0.12 35); }
+  .c3 { left: 420px; top: 120px; width: 560px; height: 560px; background: oklch(0.84 0.1 300); }
+  .c4 { left: 1180px; top: 60px; width: 620px; height: 620px; background: oklch(0.88 0.1 170); }
+  .grain {
+    position: absolute; inset: 0; mix-blend-mode: multiply; opacity: 0.5;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.34 0 0 0 0 0.24 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
+    background-size: 240px 240px;
+  }
+  .net { position: absolute; inset: 0; }
+  .content { position: absolute; left: 500px; top: 56px; width: 1000px; }
+  h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 92px; line-height: 0.95; letter-spacing: -0.01em; }
+  h1 em { color: oklch(0.56 0.13 76); }
+  .headline { font-family: "Instrument Serif", serif; font-size: 36px; line-height: 1.1; margin-top: 18px; }
+  .headline em { color: oklch(0.56 0.13 76); }
+  .tags { margin-top: 22px; font-size: 19px; font-weight: 600; }
+  .tags span { color: oklch(0.56 0.13 76); margin: 0 10px; }
+  .url { position: absolute; left: 500px; bottom: 34px; font-family: "JetBrains Mono", monospace; font-size: 15px; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(0.52 0.04 75); }
+  .role { position: absolute; right: 72px; bottom: 34px; font-family: "JetBrains Mono", monospace; font-size: 15px; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(0.52 0.04 75); }
+</style>
+</head>
+<body>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div>
+  <div class="grain"></div>
+  <svg class="net" viewBox="0 0 1584 396" fill="none" stroke="rgb(120,86,24)" stroke-opacity="0.22" stroke-width="1">
+    <path d="M1300 60 L1400 30 L1470 100 L1390 160 L1300 60 M1390 160 L1460 240 L1360 280 L1290 210 L1390 160 M1290 210 L1200 250 L1230 340 L1360 280 M1470 100 L1460 240 M1200 250 L1130 190 L1210 120 L1300 60 M1460 240 L1540 300 L1500 370 L1360 280"/>
+    <path d="M120 40 L200 90 L270 40 L240 130 L120 40 M240 130 L330 150 L300 60 L270 40 M330 150 L390 110"/>
+    <g fill="rgb(120,86,24)" fill-opacity="0.5" stroke="none">
+      <circle cx="1300" cy="60" r="4"/><circle cx="1400" cy="30" r="3"/><circle cx="1470" cy="100" r="3.5"/><circle cx="1390" cy="160" r="4.5"/><circle cx="1460" cy="240" r="3"/><circle cx="1360" cy="280" r="4"/><circle cx="1290" cy="210" r="3.5"/><circle cx="1200" cy="250" r="3"/><circle cx="1230" cy="340" r="4"/><circle cx="1130" cy="190" r="3"/><circle cx="1210" cy="120" r="3.5"/><circle cx="1540" cy="300" r="3.5"/><circle cx="1500" cy="370" r="3"/>
+      <circle cx="120" cy="40" r="3.5"/><circle cx="200" cy="90" r="3"/><circle cx="270" cy="40" r="4"/><circle cx="240" cy="130" r="3.5"/><circle cx="330" cy="150" r="3"/><circle cx="300" cy="60" r="3"/><circle cx="390" cy="110" r="3.5"/>
+    </g>
+  </svg>
+  <div class="content">
+    <h1>Vijay <em>Bolle.</em></h1>
+    <p class="headline">Building AI that doesn't just think. It gets <em>work done</em>.</p>
+    <p class="tags">Agentic AI<span>|</span>LangGraph<span>|</span>LLMs<span>|</span>Intelligent Document Processing<span>|</span>Enterprise Automation</p>
+  </div>
+  <p class="url">vijaybolle.vercel.app</p>
+  <p class="role">AI Engineer · Healthcare</p>
+</body>
+</html>

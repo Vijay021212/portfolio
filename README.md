@@ -52,6 +52,12 @@ canvas; nodes sit at different depths so the net moves in parallax with the scro
 Debug switches can be added to the URL: `?no3d` (no canvas), `?nonet` (no network), `?noenv`, `?nomat`, `?noanim`, `?dpr1`,
 `?debug` (frame timings in the console), `?skip=skills,dots`, `?noreveal`, `?noblur`, `?nosmooth`.
 
+## Brand images
+
+`brand/og.html` (the link-preview card, published as `public/og.png`) and `brand/banner.html` (the LinkedIn
+background) are plain HTML in the site's own tokens. After editing the wording, `npm run brand` re-renders
+both PNGs with a headless Chrome/Edge.
+
 A longer explanation of every decision, including what went wrong, is in [`LEARNING_LOG.md`](LEARNING_LOG.md).
 
 ## Deploy

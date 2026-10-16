@@ -272,6 +272,20 @@ be on day one.
 - **The deploy pipeline is now:** edit → `git commit` → `git push` → Vercel builds (~1 min) → live.
   Nothing else to do, ever, for a content change.
 
+### Link previews and the LinkedIn banner
+
+When a link is pasted into LinkedIn, Slack or a chat app, the preview card comes from the page's
+**Open Graph** tags (`og:title`, `og:description`, `og:image`). Without `og:image`, LinkedIn's Featured
+dialog asks for a thumbnail by hand. The fix was a 1200×630 card (`brand/og.html`) rendered to
+`public/og.png` with a headless browser and referenced from `index.html`. LinkedIn caches previews, so
+after adding the image the URL was run through LinkedIn's **Post Inspector**, which refreshes the cache;
+the existing Featured item then picked the picture up by itself.
+
+The profile banner (`brand/banner.html`, 1584×396) uses the same tokens, so LinkedIn and the site read as
+one brand. Both images are re-rendered with `npm run brand`. A detail worth remembering: LinkedIn's
+upload controls open the browser's native file picker, which automation can't see; the workaround was to
+intercept the picker so the hidden `<input type="file">` could be filled directly.
+
 ---
 
 ## Running it (PowerShell)

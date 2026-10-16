@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: Inter, system-ui, sans-serif;
+    color: oklch(0.18 0.02 70);
+    background: oklch(0.965 0.025 88);
+  }
+  .cloud { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.6; }
+  .c1 { left: -140px; top: -220px; width: 640px; height: 640px; background: oklch(0.88 0.14 85); }
+  .c2 { left: 640px; top: -200px; width: 560px; height: 560px; background: oklch(0.84 0.12 35); }
+  .c3 { left: -80px; top: 330px; width: 560px; height: 560px; background: oklch(0.84 0.1 300); }
+  .c4 { left: 720px; top: 300px; width: 600px; height: 600px; background: oklch(0.88 0.1 170); }
+  .grain {
+    position: absolute; inset: 0; mix-blend-mode: multiply; opacity: 0.5;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.34 0 0 0 0 0.24 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
+    background-size: 240px 240px;
+  }
+  .net { position: absolute; inset: 0; }
+  .content { position: absolute; left: 80px; top: 92px; width: 1040px; }
+  .hi { font-size: 24px; color: oklch(0.38 0.03 70); margin-bottom: 6px; }
+  h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 118px; line-height: 0.95; letter-spacing: -0.01em; }
+  h1 em { color: oklch(0.56 0.13 76); }
+  .headline { font-family: "Instrument Serif", serif; font-size: 40px; line-height: 1.1; margin-top: 26px; }
+  .headline em { color: oklch(0.56 0.13 76); }
+  .tags { margin-top: 30px; font-size: 21px; font-weight: 600; }
+  .tags span { color: oklch(0.56 0.13 76); margin: 0 12px; }
+  .url { position: absolute; left: 80px; bottom: 56px; font-family: "JetBrains Mono", monospace; font-size: 16px; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(0.52 0.04 75); }
+  .role { position: absolute; right: 80px; bottom: 56px; font-family: "JetBrains Mono", monospace; font-size: 16px; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(0.52 0.04 75); }
+</style>
+</head>
+<body>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div>
+  <div class="grain"></div>
+  <svg class="net" viewBox="0 0 1200 630" fill="none" stroke="rgb(120,86,24)" stroke-opacity="0.22" stroke-width="1">
+    <g>
+      <path d="M980 110 L1090 70 L1140 150 L1060 210 L980 110 M1060 210 L1120 290 L1030 330 L960 260 L1060 210 M960 260 L880 300 L900 390 L1030 330 M1140 150 L1120 290 M880 300 L820 240 L900 170 L980 110 M900 390 L950 470 L1060 440 L1030 330 M1060 440 L1120 520 L1040 580 L950 470"/>
+      <path d="M120 540 L190 590 L260 530 L210 470 L120 540 M260 530 L340 560 L330 600"/>
+    </g>
+    <g fill="rgb(120,86,24)" fill-opacity="0.5" stroke="none">
+      <circle cx="980" cy="110" r="4"/><circle cx="1090" cy="70" r="3"/><circle cx="1140" cy="150" r="3.5"/><circle cx="1060" cy="210" r="4.5"/><circle cx="1120" cy="290" r="3"/><circle cx="1030" cy="330" r="4"/><circle cx="960" cy="260" r="3.5"/><circle cx="880" cy="300" r="3"/><circle cx="900" cy="390" r="4"/><circle cx="820" cy="240" r="3"/><circle cx="900" cy="170" r="3.5"/><circle cx="950" cy="470" r="3.5"/><circle cx="1060" cy="440" r="4"/><circle cx="1120" cy="520" r="3"/><circle cx="1040" cy="580" r="3.5"/>
+      <circle cx="120" cy="540" r="3.5"/><circle cx="190" cy="590" r="3"/><circle cx="260" cy="530" r="4"/><circle cx="210" cy="470" r="3"/><circle cx="340" cy="560" r="3.5"/><circle cx="330" cy="600" r="3"/>
+    </g>
+  </svg>
+  <div class="content">
+    <p class="hi">Hi, I am</p>
+    <h1>Vijay <em>Bolle.</em></h1>
+    <p class="headline">Building AI that doesn't just think. It gets <em>work done</em>.</p>
+    <p class="tags">Agentic AI<span>|</span>LangGraph<span>|</span>LLMs<span>|</span>Intelligent Document Processing<span>|</span>Enterprise Automation</p>
+  </div>
+  <p class="url">vijaybolle.vercel.app</p>
+  <p class="role">AI Engineer · Healthcare</p>
+</body>
+</html>
