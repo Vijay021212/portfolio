@@ -3,7 +3,7 @@
 Personal portfolio site: a single scrolling page with a 3D character that follows you from section to
 section. Built with React, react-three-fiber and Motion; deployed on Vercel.
 
-> Live: _coming soon_
+> Live: **https://vijaybolle.vercel.app** · Source: https://github.com/Vijay021212/portfolio
 
 ## What's on the page
 

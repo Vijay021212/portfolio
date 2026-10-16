@@ -244,6 +244,36 @@ be on day one.
 
 ---
 
+## Phase 6: Publishing
+
+**Goal:** a public link for LinkedIn. Three parties, each with one job:
+
+| Party | Job |
+|---|---|
+| **git** (local) | history of every change, on the laptop |
+| **GitHub** (`github.com/Vijay021212/portfolio`) | the public copy of that history; also what Vercel reads from |
+| **Vercel** (`vijaybolle.vercel.app`) | builds `main` with `npm run build` and serves `dist/` from a CDN; rebuilds on every push |
+
+### What happened, and what we learned
+
+- **Git identity matters before the first push.** The machine's global git config carried the work
+  email (`@genzeon.com`). Commits are public on GitHub, and GitHub links a commit to your profile
+  only through an email registered on the account, so the repo got a local override
+  (`git config user.email mail4vijaybolle@gmail.com`) and the first commit was re-stamped with
+  `git commit --amend --reset-author` before anything was pushed.
+- **`.gitattributes` with `* text=auto eol=lf`** stops Windows' CRLF warnings and keeps the repo's
+  line endings consistent for anyone cloning on macOS or Linux. Binary files (`.glb`, `.pdf`) are
+  marked so git never tries to "fix" them.
+- **GitHub app vs. password.** Vercel never sees a GitHub password: it is installed as a GitHub
+  App with access to only the `portfolio` repository ("only select repositories"), which the account
+  owner approves once. Likewise the push used Git Credential Manager, so no token was typed anywhere.
+- **Project name = URL.** On Vercel the project name becomes `<name>.vercel.app`; naming it
+  `vijaybolle` at import time gave a clean address with no rename later.
+- **The deploy pipeline is now:** edit → `git commit` → `git push` → Vercel builds (~1 min) → live.
+  Nothing else to do, ever, for a content change.
+
+---
+
 ## Running it (PowerShell)
 
 ```powershell
