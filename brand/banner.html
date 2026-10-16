@@ -1,55 +1,116 @@
 <!doctype html>
 <!-- LinkedIn background banner, 1584x396. Render with: npm run brand (scripts/brand.mjs).
-     The bottom-left ~420px stays empty because the profile photo overlaps it on LinkedIn. -->
+     Pure graphic, no text: the layers of an agentic AI system as a stack of isometric planes,
+     bottom to top: documents / data, models (neural net), tools, agents (a loop), orchestration.
+     The bottom-left stays quiet because the profile photo overlaps it on LinkedIn. -->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1584px; height: 396px; overflow: hidden; }
-  body { position: relative; font-family: Inter, system-ui, sans-serif; color: oklch(0.18 0.02 70); background: oklch(0.965 0.025 88); }
-  .cloud { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.6; }
-  .c1 { left: -160px; top: -260px; width: 620px; height: 620px; background: oklch(0.88 0.14 85); }
-  .c2 { left: 860px; top: -300px; width: 620px; height: 620px; background: oklch(0.84 0.12 35); }
-  .c3 { left: 420px; top: 120px; width: 560px; height: 560px; background: oklch(0.84 0.1 300); }
-  .c4 { left: 1180px; top: 60px; width: 620px; height: 620px; background: oklch(0.88 0.1 170); }
+  body { position: relative; background: radial-gradient(ellipse 70% 90% at 68% 40%, #1d2130 0%, #121420 55%, #0c0e14 100%); }
   .grain {
-    position: absolute; inset: 0; mix-blend-mode: multiply; opacity: 0.5;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.34 0 0 0 0 0.24 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
+    position: absolute; inset: 0; mix-blend-mode: overlay; opacity: 0.35;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.7 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
     background-size: 240px 240px;
   }
-  .net { position: absolute; inset: 0; }
-  .content { position: absolute; left: 500px; top: 56px; width: 1000px; }
-  h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 92px; line-height: 0.95; letter-spacing: -0.01em; }
-  h1 em { color: oklch(0.56 0.13 76); }
-  .headline { font-family: "Instrument Serif", serif; font-size: 36px; line-height: 1.1; margin-top: 18px; }
-  .headline em { color: oklch(0.56 0.13 76); }
-  .tags { margin-top: 22px; font-size: 19px; font-weight: 600; }
-  .tags span { color: oklch(0.56 0.13 76); margin: 0 10px; }
-  .url { position: absolute; left: 500px; bottom: 34px; font-family: "JetBrains Mono", monospace; font-size: 15px; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(0.52 0.04 75); }
-  .role { position: absolute; right: 72px; bottom: 34px; font-family: "JetBrains Mono", monospace; font-size: 15px; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(0.52 0.04 75); }
+  svg { position: absolute; inset: 0; }
 </style>
 </head>
 <body>
-  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div>
-  <div class="grain"></div>
-  <svg class="net" viewBox="0 0 1584 396" fill="none" stroke="rgb(120,86,24)" stroke-opacity="0.22" stroke-width="1">
-    <path d="M1300 60 L1400 30 L1470 100 L1390 160 L1300 60 M1390 160 L1460 240 L1360 280 L1290 210 L1390 160 M1290 210 L1200 250 L1230 340 L1360 280 M1470 100 L1460 240 M1200 250 L1130 190 L1210 120 L1300 60 M1460 240 L1540 300 L1500 370 L1360 280"/>
-    <path d="M120 40 L200 90 L270 40 L240 130 L120 40 M240 130 L330 150 L300 60 L270 40 M330 150 L390 110"/>
-    <g fill="rgb(120,86,24)" fill-opacity="0.5" stroke="none">
-      <circle cx="1300" cy="60" r="4"/><circle cx="1400" cy="30" r="3"/><circle cx="1470" cy="100" r="3.5"/><circle cx="1390" cy="160" r="4.5"/><circle cx="1460" cy="240" r="3"/><circle cx="1360" cy="280" r="4"/><circle cx="1290" cy="210" r="3.5"/><circle cx="1200" cy="250" r="3"/><circle cx="1230" cy="340" r="4"/><circle cx="1130" cy="190" r="3"/><circle cx="1210" cy="120" r="3.5"/><circle cx="1540" cy="300" r="3.5"/><circle cx="1500" cy="370" r="3"/>
-      <circle cx="120" cy="40" r="3.5"/><circle cx="200" cy="90" r="3"/><circle cx="270" cy="40" r="4"/><circle cx="240" cy="130" r="3.5"/><circle cx="330" cy="150" r="3"/><circle cx="300" cy="60" r="3"/><circle cx="390" cy="110" r="3.5"/>
+  <svg viewBox="0 0 1584 396" width="1584" height="396">
+    <defs>
+      <radialGradient id="glowGold" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e0b44c" stop-opacity="0.32"/><stop offset="1" stop-color="#e0b44c" stop-opacity="0"/></radialGradient>
+      <radialGradient id="glowTeal" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#5fd3c7" stop-opacity="0.22"/><stop offset="1" stop-color="#5fd3c7" stop-opacity="0"/></radialGradient>
+      <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e0b44c"/></marker>
+    </defs>
+
+    <!-- ambient glows -->
+    <ellipse cx="1130" cy="210" rx="360" ry="230" fill="url(#glowGold)"/>
+    <ellipse cx="520" cy="150" rx="330" ry="200" fill="url(#glowTeal)"/>
+
+    <!-- faint network on the left, behind where the profile photo sits -->
+    <g stroke="#5fd3c7" stroke-opacity="0.16" stroke-width="1" fill="none">
+      <path d="M90 70 L200 40 L290 110 L210 170 L90 70 M210 170 L320 230 L430 170 L290 110 M430 170 L520 90 L600 150 L540 230 L430 170 M320 230 L360 320 L470 300 L430 170 M540 230 L650 300 L600 370 M600 150 L700 90 L760 160 L650 300"/>
+    </g>
+    <g fill="#5fd3c7" fill-opacity="0.45">
+      <circle cx="90" cy="70" r="3"/><circle cx="200" cy="40" r="2.5"/><circle cx="290" cy="110" r="3.5"/><circle cx="210" cy="170" r="2.5"/><circle cx="320" cy="230" r="3"/><circle cx="430" cy="170" r="4"/><circle cx="520" cy="90" r="2.5"/><circle cx="600" cy="150" r="3.5"/><circle cx="540" cy="230" r="3"/><circle cx="360" cy="320" r="2.5"/><circle cx="470" cy="300" r="3"/><circle cx="650" cy="300" r="3.5"/><circle cx="700" cy="90" r="2.5"/><circle cx="760" cy="160" r="3"/><circle cx="600" cy="370" r="2.5"/>
+    </g>
+
+    <!-- vertical connectors through the stack (screen coords; local point (260,85) of each plane) -->
+    <g stroke="#5fd3c7" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="3 5">
+      <line x1="1133" y1="342" x2="1133" y2="126"/>
+      <line x1="985" y1="322" x2="985" y2="106"/>
+      <line x1="1281" y1="362" x2="1281" y2="146"/>
+    </g>
+    <!-- signals travelling along the connectors -->
+    <g fill="#5fd3c7">
+      <circle cx="1133" cy="250" r="7" filter="url(#soft)" opacity="0.9"/><circle cx="1133" cy="250" r="3"/>
+      <circle cx="985" cy="180" r="7" filter="url(#soft)" opacity="0.9"/><circle cx="985" cy="180" r="3"/>
+      <circle cx="1281" cy="300" r="7" filter="url(#soft)" opacity="0.9"/><circle cx="1281" cy="300" r="3"/>
+    </g>
+
+    <!-- LAYER 0, bottom: documents / data -->
+    <g transform="matrix(1 0 -0.55 0.5 920 300)">
+      <rect x="0" y="0" width="520" height="170" rx="6" fill="#ffffff" fill-opacity="0.035" stroke="#e0b44c" stroke-opacity="0.45"/>
+      <g fill="#5fd3c7" fill-opacity="0.18" stroke="#5fd3c7" stroke-opacity="0.55">
+        <rect x="40" y="26" width="44" height="30" rx="4"/><rect x="106" y="26" width="44" height="30" rx="4"/><rect x="172" y="26" width="44" height="30" rx="4"/><rect x="238" y="26" width="44" height="30" rx="4"/><rect x="304" y="26" width="44" height="30" rx="4"/><rect x="370" y="26" width="44" height="30" rx="4"/><rect x="436" y="26" width="44" height="30" rx="4"/>
+        <rect x="40" y="72" width="44" height="30" rx="4"/><rect x="106" y="72" width="44" height="30" rx="4"/><rect x="172" y="72" width="44" height="30" rx="4"/><rect x="238" y="72" width="44" height="30" rx="4"/><rect x="304" y="72" width="44" height="30" rx="4"/><rect x="370" y="72" width="44" height="30" rx="4"/><rect x="436" y="72" width="44" height="30" rx="4"/>
+        <rect x="40" y="118" width="44" height="30" rx="4"/><rect x="106" y="118" width="44" height="30" rx="4"/><rect x="172" y="118" width="44" height="30" rx="4"/><rect x="238" y="118" width="44" height="30" rx="4"/><rect x="304" y="118" width="44" height="30" rx="4"/><rect x="370" y="118" width="44" height="30" rx="4"/><rect x="436" y="118" width="44" height="30" rx="4"/>
+      </g>
+    </g>
+
+    <!-- LAYER 1: models, a neural net -->
+    <g transform="matrix(1 0 -0.55 0.5 920 246)">
+      <rect x="0" y="0" width="520" height="170" rx="6" fill="#ffffff" fill-opacity="0.045" stroke="#e0b44c" stroke-opacity="0.5"/>
+      <g stroke="#e0b44c" stroke-opacity="0.35" stroke-width="1.2">
+        <path d="M90 40 L260 25 M90 40 L260 60 M90 40 L260 110 M90 40 L260 145 M90 85 L260 25 M90 85 L260 60 M90 85 L260 110 M90 85 L260 145 M90 130 L260 25 M90 130 L260 60 M90 130 L260 110 M90 130 L260 145"/>
+        <path d="M260 25 L430 40 M260 25 L430 85 M260 25 L430 130 M260 60 L430 40 M260 60 L430 85 M260 60 L430 130 M260 110 L430 40 M260 110 L430 85 M260 110 L430 130 M260 145 L430 40 M260 145 L430 85 M260 145 L430 130"/>
+      </g>
+      <g fill="#e0b44c">
+        <circle cx="90" cy="40" r="8"/><circle cx="90" cy="85" r="8"/><circle cx="90" cy="130" r="8"/>
+        <circle cx="260" cy="25" r="8"/><circle cx="260" cy="60" r="8"/><circle cx="260" cy="110" r="8"/><circle cx="260" cy="145" r="8"/>
+        <circle cx="430" cy="40" r="8"/><circle cx="430" cy="85" r="8"/><circle cx="430" cy="130" r="8"/>
+      </g>
+    </g>
+
+    <!-- LAYER 2: tools -->
+    <g transform="matrix(1 0 -0.55 0.5 920 192)">
+      <rect x="0" y="0" width="520" height="170" rx="6" fill="#ffffff" fill-opacity="0.055" stroke="#e0b44c" stroke-opacity="0.55"/>
+      <g fill="#5fd3c7" fill-opacity="0.12" stroke="#5fd3c7" stroke-opacity="0.8" stroke-width="1.5">
+        <polygon points="80,57 104,71 104,99 80,113 56,99 56,71"/>
+        <polygon points="180,57 204,71 204,99 180,113 156,99 156,71"/>
+        <polygon points="280,57 304,71 304,99 280,113 256,99 256,71"/>
+        <polygon points="380,57 404,71 404,99 380,113 356,99 356,71"/>
+        <polygon points="480,57 504,71 504,99 480,113 456,99 456,71"/>
+      </g>
+      <g fill="#5fd3c7"><circle cx="80" cy="85" r="5"/><circle cx="180" cy="85" r="5"/><circle cx="280" cy="85" r="5"/><circle cx="380" cy="85" r="5"/><circle cx="480" cy="85" r="5"/></g>
+    </g>
+
+    <!-- LAYER 3: agents, a loop with arrows -->
+    <g transform="matrix(1 0 -0.55 0.5 920 138)">
+      <rect x="0" y="0" width="520" height="170" rx="6" fill="#ffffff" fill-opacity="0.065" stroke="#e0b44c" stroke-opacity="0.6"/>
+      <g stroke="#e0b44c" stroke-opacity="0.85" stroke-width="2" fill="none" marker-end="url(#arrow)">
+        <path d="M128 76 L240 44"/><path d="M280 44 L392 76"/><path d="M392 96 L280 128"/><path d="M240 128 L128 96"/>
+      </g>
+      <g fill="#0c0e14" stroke="#e0b44c" stroke-width="2.5">
+        <circle cx="110" cy="85" r="18"/><circle cx="260" cy="40" r="18"/><circle cx="410" cy="85" r="18"/><circle cx="260" cy="130" r="18"/>
+      </g>
+      <g fill="#e0b44c"><circle cx="110" cy="85" r="7"/><circle cx="260" cy="40" r="7"/><circle cx="410" cy="85" r="7"/><circle cx="260" cy="130" r="7"/></g>
+    </g>
+
+    <!-- LAYER 4, top: orchestration, one node directing four -->
+    <g transform="matrix(1 0 -0.55 0.5 920 84)">
+      <rect x="0" y="0" width="520" height="170" rx="6" fill="#ffffff" fill-opacity="0.08" stroke="#e0b44c" stroke-opacity="0.7"/>
+      <g stroke="#5fd3c7" stroke-opacity="0.8" stroke-width="1.5"><path d="M260 85 L90 45 M260 85 L430 45 M260 85 L90 125 M260 85 L430 125"/></g>
+      <g fill="#5fd3c7"><circle cx="90" cy="45" r="9"/><circle cx="430" cy="45" r="9"/><circle cx="90" cy="125" r="9"/><circle cx="430" cy="125" r="9"/></g>
+      <circle cx="260" cy="85" r="30" fill="#e0b44c" fill-opacity="0.25" filter="url(#soft)"/>
+      <circle cx="260" cy="85" r="20" fill="#0c0e14" stroke="#e0b44c" stroke-width="3"/>
+      <circle cx="260" cy="85" r="8" fill="#e0b44c"/>
     </g>
   </svg>
-  <div class="content">
-    <h1>Vijay <em>Bolle.</em></h1>
-    <p class="headline">Building AI that doesn't just think. It gets <em>work done</em>.</p>
-    <p class="tags">Agentic AI<span>|</span>LangGraph<span>|</span>LLMs<span>|</span>Intelligent Document Processing<span>|</span>Enterprise Automation</p>
-  </div>
-  <p class="url">vijaybolle.vercel.app</p>
-  <p class="role">AI Engineer · Healthcare</p>
+  <div class="grain"></div>
 </body>
 </html>
