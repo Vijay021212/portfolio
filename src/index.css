@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* Design tokens, named by role: `paper` is the page background, `ink` is text, `gold` is the accent.
+   Colourful theme: a cream page with five drifting colour clouds (.aurora below); gold stays the brand. */
+@theme {
+  --color-paper: oklch(0.965 0.025 88); /* cream page background */
+  --color-ink: oklch(0.18 0.02 70); /* warm near-black text */
+  --color-mute: oklch(0.38 0.03 70); /* body copy */
+  --color-dim: oklch(0.52 0.04 75); /* small labels */
+  --color-gold: oklch(0.56 0.13 76); /* accent: deep gold, readable on cream */
+  --color-gold-soft: oklch(0.9 0.1 88); /* tints and highlights */
+  --color-line: oklch(0.3 0.06 75 / 16%);
+
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* The base colour lives on <html>, not <body>: a body background would paint OVER the negative
+   z-index layers below (.aurora, the paper grain). The root background is painted first, under them. */
+html {
+  background: var(--color-paper);
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-ink font-sans antialiased;
+}
+
+/* The colour clouds. Fixed, behind the neural net and the robot; each span is a blurred disc with its
+   own slow drift so the mix of colours keeps changing. Sizes are in viewport units so it scales. */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.6;
+  will-change: transform;
+  animation: drift 30s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(1) { left: -12vw; top: -18vh; width: 58vw; height: 58vw; background: oklch(0.88 0.14 85); animation-duration: 34s; }                       /* gold */
+.aurora span:nth-child(2) { left: 55vw; top: -10vh; width: 48vw; height: 48vw; background: oklch(0.84 0.12 35); animation-duration: 27s; animation-delay: -9s; }   /* peach */
+.aurora span:nth-child(3) { left: -8vw; top: 52vh; width: 52vw; height: 52vw; background: oklch(0.84 0.1 300); animation-duration: 31s; animation-delay: -17s; }  /* lavender */
+.aurora span:nth-child(4) { left: 58vw; top: 50vh; width: 50vw; height: 50vw; background: oklch(0.88 0.1 170); animation-duration: 25s; animation-delay: -5s; }   /* mint */
+.aurora span:nth-child(5) { left: 30vw; top: 22vh; width: 40vw; height: 40vw; background: oklch(0.87 0.09 240); animation-duration: 38s; animation-delay: -22s; opacity: 0.45; } /* sky */
+
+/* Paper grain over the colour: an SVG noise filter, multiplied onto the page. Two layers: a fine grain
+   (high frequency) and a soft mottle (low frequency), both tinted warm brown like paper fibre.
+   body::after paints after .aurora at the same z-index, so the grain textures the clouds too. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  background-image:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.34 0 0 0 0 0.24 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>"),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.42 0 0 0 0 0.3 0 0 0 0.28 0'/></filter><rect width='100%25' height='100%25' filter='url(%23m)'/></svg>");
+  background-size: 240px 240px, 600px 600px;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10vw, 8vh) scale(1.12); }
+  100% { transform: translate(-7vw, 14vh) scale(0.94); }
+}
+
+/* Phones: fewer, softer clouds (blur is the expensive part). */
+@media (max-width: 767px) {
+  .aurora span { filter: blur(50px); width: 90vw; height: 90vw; }
+  .aurora span:nth-child(4), .aurora span:nth-child(5) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora span { animation: none; }
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-paper);
+}
+
+/* Thin, quiet scrollbar. */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb { background: oklch(0 0 0 / 15%); border-radius: 8px; }
+
+/* Tiny tracked-out monospace labels: "01 / ABOUT", "SCROLL ↓" */
+.label {
+  @apply font-mono text-[10px] tracking-[0.32em] uppercase;
+}
+
+.pill {
+  @apply inline-block rounded-sm border border-line bg-white/70 px-2.5 py-1 text-[12px] text-ink/85;
+}
