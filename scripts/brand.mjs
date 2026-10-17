@@ -1,8 +1,8 @@
-// Renders the brand images from their HTML sources with a headless Chromium browser:
-//   brand/og.html      -> public/og.png            (1200x630, link preview card: LinkedIn, Slack, iMessage...)
-//   brand/banner.html  -> brand/linkedin-banner.png (1584x396, LinkedIn profile background)
-// Run after changing the wording in those HTML files:  npm run brand
+// Renders the link-preview card from its HTML source with a headless Chromium browser:
+//   brand/og.html -> public/og.png (1200x630, used by LinkedIn, Slack, iMessage... when the site is shared)
+// Run after changing the wording in brand/og.html:  npm run brand
 // Uses the same browser detection as scripts/smoke.mjs; set BROWSER=<path> to override.
+// (The LinkedIn banner, brand/linkedin-banner.png, is an AI-generated illustration and is not rendered here.)
 import { spawnSync } from 'node:child_process'
 import { existsSync, rmSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -25,10 +25,7 @@ if (!browser) {
   process.exit(1)
 }
 
-const jobs = [
-  { source: 'brand/og.html', output: 'public/og.png', size: '1200,630' },
-  { source: 'brand/banner.html', output: 'brand/linkedin-banner.png', size: '1584,396' },
-]
+const jobs = [{ source: 'brand/og.html', output: 'public/og.png', size: '1200,630' }]
 
 const profile = resolve('brand/.browser-profile')
 for (const job of jobs) {

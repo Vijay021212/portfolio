@@ -281,10 +281,17 @@ dialog asks for a thumbnail by hand. The fix was a 1200×630 card (`brand/og.htm
 after adding the image the URL was run through LinkedIn's **Post Inspector**, which refreshes the cache;
 the existing Featured item then picked the picture up by itself.
 
-The profile banner (`brand/banner.html`, 1584×396) uses the same tokens, so LinkedIn and the site read as
-one brand. Both images are re-rendered with `npm run brand`. A detail worth remembering: LinkedIn's
-upload controls open the browser's native file picker, which automation can't see; the workaround was to
-intercept the picker so the hidden `<input type="file">` could be filled directly.
+The profile banner went through three versions in one evening, which is its own lesson: a text-heavy
+card in the site's tokens (rejected: the user wanted no name or words), a hand-drawn SVG of the agentic
+stack (rejected: too diagrammatic), and finally an AI-generated illustration in the painterly style of a
+banner the user liked — a figure raising a light toward a colossal AI presence, sunrise on one side and
+a machine city on the other. Generated with Canva's image model at 2:1, placed on a 1584×396 Canva page
+and exported, because Canva's full-size media URLs are signed and can't be fetched directly. Lesson:
+when someone says "something good", ask for a reference image before drawing anything.
+
+A detail worth remembering: LinkedIn's upload controls open the browser's native file picker, which
+automation can't see; the workaround was to intercept the picker so the hidden `<input type="file">`
+could be filled directly.
 
 ---
 

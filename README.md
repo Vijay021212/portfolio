@@ -54,9 +54,9 @@ Debug switches can be added to the URL: `?no3d` (no canvas), `?nonet` (no networ
 
 ## Brand images
 
-`brand/og.html` (the link-preview card, published as `public/og.png`) and `brand/banner.html` (the LinkedIn
-background) are plain HTML in the site's own tokens. After editing the wording, `npm run brand` re-renders
-both PNGs with a headless Chrome/Edge.
+`brand/og.html` is the link-preview card (published as `public/og.png`), plain HTML in the site's own tokens;
+after editing the wording, `npm run brand` re-renders it with a headless Chrome/Edge. `brand/linkedin-banner.png`
+is the LinkedIn profile background, an AI-generated illustration (Canva) cropped to 1584×396.
 
 A longer explanation of every decision, including what went wrong, is in [`LEARNING_LOG.md`](LEARNING_LOG.md).
 
