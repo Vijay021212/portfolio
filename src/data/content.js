@@ -172,10 +172,10 @@ export const content = {
       {
         title: 'DocsGroundTruth',
         description:
-          'A production-style RAG system for healthcare policy documents that runs entirely on a laptop: Ollama (Qwen3 4B + nomic-embed-text), hybrid BM25 + vector retrieval, cited answers and an evaluation harness.',
-        tags: ['RAG', 'Local LLMs', 'Ollama', 'Evals', 'Python'],
-        href: 'https://github.com/Vijay021212', // TODO: point at the repo once it is pushed
-        status: 'In progress',
+          'A RAG system that answers questions from your own documents with page citations, running entirely on a laptop CPU: Docling parsing, hybrid BM25 + vector search with a reranker, a local Qwen3 model, and an evaluation harness that reports its failures as well as its scores.',
+        tags: ['RAG', 'Hybrid search', 'Reranking', 'Ollama', 'Evals', 'FastAPI'],
+        href: 'https://github.com/Vijay021212/docsgroundtruth',
+        status: null,
       },
       {
         title: 'Local LLM Lab',
